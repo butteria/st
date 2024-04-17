@@ -4,7 +4,7 @@
 
 include config.mk
 
-SRC = st.c x.c
+SRC = st.c x.c hb.c
 OBJ = $(SRC:.c=.o)
 
 all: st
@@ -13,7 +13,8 @@ all: st
 	$(CC) $(STCFLAGS) -c $<
 
 st.o: config.def.h st.h win.h
-x.o: arg.h config.def.h st.h win.h
+x.o: arg.h config.def.h st.h win.h hb.h
+hb.o: st.h
 
 $(OBJ): config.mk
 
